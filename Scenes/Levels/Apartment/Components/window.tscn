@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://lje1niltkiiy"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_y7kn0"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/Components/window.gd" id="2_8jdbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b68id"]
+size = Vector2(32, 43)
+
+[node name="Window" type="TileMap"]
+tile_set = ExtResource("1_y7kn0")
+format = 2
+layer_0/tile_data = PackedInt32Array(-327680, 1114112, 5, -262144, 1114112, 6, -196608, 1114112, 7, -131072, 1114112, 8, -65536, 1114112, 9)
+script = ExtResource("2_8jdbx")
+
+[node name="AreaVicinity" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVicinity"]
+position = Vector2(16, -21.5)
+shape = SubResource("RectangleShape2D_b68id")
+
+[connection signal="body_entered" from="AreaVicinity" to="." method="_on_area_vicinity_body_entered"]
+[connection signal="body_exited" from="AreaVicinity" to="." method="_on_area_vicinity_body_exited"]

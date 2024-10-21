@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://8wvt3doawl41"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_kl3bt"]
+[ext_resource type="Script" path="res://Scenes/Units/rrat_hole.gd" id="2_6e7mm"]
+[ext_resource type="PackedScene" uid="uid://cdhuylb0prbp1" path="res://Scenes/Units/rrat.tscn" id="3_xkm6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkx3k"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjqdo"]
+size = Vector2(16, 16)
+
+[node name="RratHole" type="TileMap"]
+tile_set = ExtResource("1_kl3bt")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 786432, 10)
+script = ExtResource("2_6e7mm")
+
+[node name="Rrat" parent="." instance=ExtResource("3_xkm6d")]
+position = Vector2(72, 0)
+
+[node name="AreaLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLeft"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_dkx3k")
+
+[node name="AreaRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRight"]
+position = Vector2(136, -8)
+shape = SubResource("RectangleShape2D_gjqdo")
+
+[connection signal="body_entered" from="AreaLeft" to="." method="_on_area_left_body_entered"]
+[connection signal="body_entered" from="AreaRight" to="." method="_on_area_right_body_entered"]

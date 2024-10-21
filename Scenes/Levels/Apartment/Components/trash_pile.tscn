@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cejqepgft5183"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_2r3ml"]
+
+[node name="TrashPile" type="TileMap"]
+tile_set = ExtResource("1_2r3ml")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 851968, 1, -65536, 851968, 2, -131071, 917504, 1, -65535, 917504, 2)

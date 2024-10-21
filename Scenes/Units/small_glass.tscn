@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm0kjjkhnor1d"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_i44x6"]
+[ext_resource type="Script" path="res://Scenes/Units/glass.gd" id="2_3q6k2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aip6n"]
+size = Vector2(48, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pw3u"]
+size = Vector2(12, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahka1"]
+size = Vector2(12, 9)
+
+[node name="Glass" type="TileMap"]
+tile_set = ExtResource("1_i44x6")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 589824, 10, -65535, 655360, 10, -65534, 720896, 10)
+script = ExtResource("2_3q6k2")
+
+[node name="AreaDamage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
+position = Vector2(24, -2)
+shape = SubResource("RectangleShape2D_aip6n")
+
+[node name="AreaNoticeLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaNoticeLeft"]
+position = Vector2(-6, -4.5)
+shape = SubResource("RectangleShape2D_3pw3u")
+
+[node name="AreaNoticeRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaNoticeRight"]
+position = Vector2(54, -4.5)
+shape = SubResource("RectangleShape2D_ahka1")
+
+[connection signal="body_entered" from="AreaDamage" to="." method="_on_area_damage_body_entered"]
+[connection signal="body_exited" from="AreaDamage" to="." method="_on_area_damage_body_exited"]
+[connection signal="body_entered" from="AreaNoticeLeft" to="." method="_on_area_notice_left_body_entered"]
+[connection signal="body_entered" from="AreaNoticeRight" to="." method="_on_area_notice_right_body_entered"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5vpm674ut4tv"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/jelly_room.gd" id="1_24oel"]
+[ext_resource type="PackedScene" uid="uid://brepjtn4lu1m7" path="res://Scenes/Levels/Apartment/Base/room.tscn" id="1_dkgvd"]
+[ext_resource type="PackedScene" uid="uid://dh0qldhha01sw" path="res://Scenes/Levels/Apartment/Components/bed.tscn" id="2_1vtn8"]
+[ext_resource type="PackedScene" uid="uid://ckuua6dlh5vvp" path="res://Scenes/Levels/Apartment/Components/box.tscn" id="3_4su52"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="4_hxxk1"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="5_rg0nt"]
+[ext_resource type="PackedScene" uid="uid://64fb5yqa5qdv" path="res://Scenes/Levels/Apartment/Components/lumi_picture.tscn" id="7_ij8cw"]
+[ext_resource type="PackedScene" uid="uid://c7lcyl2lrtxdp" path="res://Scenes/Levels/Apartment/Components/table.tscn" id="7_mk1u7"]
+[ext_resource type="PackedScene" uid="uid://csqebeabgie55" path="res://Scenes/Levels/Apartment/Components/fridge.tscn" id="8_6is7b"]
+[ext_resource type="PackedScene" uid="uid://bn8xx6m1c1dyg" path="res://Scenes/Levels/Apartment/Components/trash.tscn" id="10_omwfk"]
+
+[node name="JellyRoom" type="Node2D"]
+script = ExtResource("1_24oel")
+
+[node name="Room" parent="." instance=ExtResource("1_dkgvd")]
+
+[node name="Bed" parent="." instance=ExtResource("2_1vtn8")]
+position = Vector2(16, -16)
+
+[node name="Box" parent="." instance=ExtResource("3_4su52")]
+position = Vector2(145, -16)
+
+[node name="Door" parent="." instance=ExtResource("4_hxxk1")]
+position = Vector2(272, -16)
+
+[node name="AreaDoor" parent="." instance=ExtResource("5_rg0nt")]
+position = Vector2(352, -16)
+
+[node name="Table" parent="." instance=ExtResource("7_mk1u7")]
+position = Vector2(400, -16)
+
+[node name="Fridge" parent="." instance=ExtResource("8_6is7b")]
+position = Vector2(496, -16)
+
+[node name="LumiPicture" parent="." instance=ExtResource("7_ij8cw")]
+position = Vector2(184, -38)
+
+[node name="Trash" parent="." instance=ExtResource("10_omwfk")]
+position = Vector2(545, -16)
+
+[connection signal="door_opened" from="AreaDoor" to="." method="_on_area_door_door_opened"]
+[connection signal="fridge_closed" from="Fridge" to="." method="_on_fridge_fridge_closed"]
+[connection signal="fridge_opened" from="Fridge" to="." method="_on_fridge_fridge_opened"]

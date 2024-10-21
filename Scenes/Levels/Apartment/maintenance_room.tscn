@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu3ejw16qdl6v"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/maintenance_room.gd" id="1_4sehc"]
+[ext_resource type="PackedScene" uid="uid://dxk3sgqss20ui" path="res://Scenes/Levels/Apartment/Base/maintenance_room.tscn" id="2_pifa0"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="3_vs75i"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="4_n1rbn"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="5_hf4xs"]
+
+[node name="MaintenanceRoom" type="Node2D"]
+script = ExtResource("1_4sehc")
+
+[node name="MaintenanceRoom" parent="." instance=ExtResource("2_pifa0")]
+
+[node name="AreaDoorRoof" parent="." instance=ExtResource("3_vs75i")]
+position = Vector2(48, -16)
+door_type = "Fire"
+lock_name = "building_roof"
+
+[node name="AreaDoorF5" parent="." instance=ExtResource("3_vs75i")]
+position = Vector2(272, -16)
+door_type = "Fire"
+
+[node name="Door" parent="." instance=ExtResource("4_n1rbn")]
+position = Vector2(96, -16)
+door_type = "Fire"
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("5_hf4xs")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196596, 983040, 15, -131060, 983040, 16, -196595, 1048576, 15, -131059, 1048576, 16, -131062, 851968, 14, -131061, 917504, 14, -131058, 458752, 2, -393208, 655360, 11, -393215, 655360, 11, -393192, 589824, 11, -131048, 524288, 6, -131049, 393216, 6, -131051, 851968, 14, -131050, 917504, 14, -196607, 983040, 15, -131071, 983040, 16, -196606, 1048576, 15, -131070, 1048576, 16, -262143, 851968, 14, -262142, 917504, 14)
+
+[connection signal="door_opened" from="AreaDoorRoof" to="." method="_on_area_door_roof_door_opened"]
+[connection signal="door_opened" from="AreaDoorF5" to="." method="_on_area_door_f_5_door_opened"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfdo4oeq6day7"]
+
+[ext_resource type="Script" path="res://Scenes/Units/spider.gd" id="1_joybd"]
+[ext_resource type="Texture2D" uid="uid://52yyq0ta8q5y" path="res://Assets/enemies.png" id="2_l8gna"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c38b8"]
+atlas = ExtResource("2_l8gna")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xl05h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c38b8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk773"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et6ae"]
+size = Vector2(5, 5)
+
+[node name="Spider" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_joybd")
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_xl05h")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_pk773")
+
+[node name="AreaDamage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_et6ae")
+
+[connection signal="body_entered" from="AreaDamage" to="." method="_on_area_damage_body_entered"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg4c76sii7egl"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/fourth_floor_room_1.gd" id="1_2wyte"]
+[ext_resource type="PackedScene" uid="uid://cow1uoopapcxn" path="res://Scenes/Levels/Apartment/Base/room2.tscn" id="1_w6brn"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="3_on7kn"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="4_68gq2"]
+[ext_resource type="PackedScene" uid="uid://csqebeabgie55" path="res://Scenes/Levels/Apartment/Components/fridge.tscn" id="5_jcqx4"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="6_pt8av"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="7_ph3rf"]
+
+[node name="FourthFloorRoom1" type="Node2D"]
+script = ExtResource("1_2wyte")
+
+[node name="Room2" parent="." instance=ExtResource("1_w6brn")]
+
+[node name="Door" parent="." instance=ExtResource("3_on7kn")]
+position = Vector2(272, -16)
+
+[node name="AreaDoor" parent="." instance=ExtResource("4_68gq2")]
+position = Vector2(352, -16)
+
+[node name="Fridge" parent="." instance=ExtResource("5_jcqx4")]
+position = Vector2(512, -16)
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("6_pt8av")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131071, 983040, 11, -131070, 1048576, 11, -131069, 1114112, 11, -196601, 983040, 0, -131065, 983040, 1, -131046, 851968, 14, -131045, 917504, 14, -196580, 983040, 0, -131044, 983040, 1, -131042, 851968, 0, -131047, 851968, 0, -196597, 851968, 1, -131061, 851968, 2, -196596, 917504, 1, -131060, 917504, 2, -131059, 851968, 0, -393215, 655360, 11, -393199, 589824, 11, -196606, 786432, 11, -393182, 589824, 11, -393197, 1441792, 9, -393196, 1507328, 9)
+
+[node name="SpiderDrop" parent="." instance=ExtResource("7_ph3rf")]
+position = Vector2(130, -80)
+
+[connection signal="door_opened" from="AreaDoor" to="." method="_on_area_door_door_opened"]

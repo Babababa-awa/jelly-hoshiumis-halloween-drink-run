@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://y7emk8leigvp"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_5304u"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/Components/door.gd" id="2_gq64o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k7tp"]
+size = Vector2(14, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53pmg"]
+size = Vector2(14, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq6c1"]
+size = Vector2(80, 48)
+
+[node name="Door" type="TileMap"]
+tile_set = ExtResource("1_5304u")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196607, 262144, 0, -131071, 262144, 1, -65535, 262144, 2)
+script = ExtResource("2_gq64o")
+
+[node name="AreaLeftSide" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLeftSide"]
+position = Vector2(15, -24)
+shape = SubResource("RectangleShape2D_4k7tp")
+
+[node name="AreaRightSide" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRightSide"]
+position = Vector2(33, -24)
+shape = SubResource("RectangleShape2D_53pmg")
+
+[node name="AreaVicinity" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVicinity"]
+position = Vector2(24, -24)
+shape = SubResource("RectangleShape2D_iq6c1")
+
+[connection signal="body_entered" from="AreaLeftSide" to="." method="_on_area_left_side_body_entered"]
+[connection signal="body_exited" from="AreaLeftSide" to="." method="_on_area_left_side_body_exited"]
+[connection signal="body_entered" from="AreaRightSide" to="." method="_on_area_right_side_body_entered"]
+[connection signal="body_exited" from="AreaRightSide" to="." method="_on_area_right_side_body_exited"]
+[connection signal="body_entered" from="AreaVicinity" to="." method="_on_area_vicinity_body_entered"]
+[connection signal="body_exited" from="AreaVicinity" to="." method="_on_area_vicinity_body_exited"]

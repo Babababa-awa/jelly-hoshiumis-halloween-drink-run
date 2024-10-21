@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgnbsv4yce2t5"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/side_building.gd" id="1_whnj1"]
+[ext_resource type="PackedScene" uid="uid://dk5nyalb8ysxr" path="res://Scenes/Levels/Apartment/Base/side_building.tscn" id="2_hgkbh"]
+[ext_resource type="PackedScene" uid="uid://c5wwd4uncwksj" path="res://Scenes/Levels/Apartment/Components/area_window.tscn" id="3_wv452"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="4_62oag"]
+[ext_resource type="PackedScene" uid="uid://cj0kt44nnep5p" path="res://Scenes/Units/ghost_path.tscn" id="5_7bq8u"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="6_qnyi3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jda2j"]
+size = Vector2(416, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr071"]
+
+[node name="SideBuilding" type="Node2D"]
+script = ExtResource("1_whnj1")
+
+[node name="SideBuilding" parent="." instance=ExtResource("2_hgkbh")]
+
+[node name="AreaWindowF3" parent="." instance=ExtResource("3_wv452")]
+position = Vector2(320, 0)
+
+[node name="AreaWindowF4" parent="." instance=ExtResource("3_wv452")]
+position = Vector2(320, -112)
+
+[node name="AreaWindowF5" parent="." instance=ExtResource("3_wv452")]
+position = Vector2(320, -224)
+
+[node name="Ladder" type="TileMap" parent="."]
+tile_set = ExtResource("4_62oag")
+format = 2
+layer_0/tile_data = PackedInt32Array(393224, 917504, 0, -1572856, 917504, 0, -1507320, 917504, 0, -1441784, 917504, 0, -1376248, 917504, 0, -1310712, 917504, 0, -1245176, 917504, 0, -1179640, 917504, 0, -1114104, 917504, 0, -1048568, 917504, 0, -983032, 917504, 0, -917496, 917504, 0, -851960, 917504, 0, -786424, 917504, 0, -720888, 917504, 0, -655352, 917504, 0, -589816, 917504, 0, -524280, 917504, 0, -458744, 917504, 0, -393208, 917504, 0, -327672, 917504, 0, -262136, 917504, 0, -196600, 917504, 0, -131064, 917504, 0, -65528, 917504, 0, 8, 917504, 0, 65544, 917504, 0, 131080, 917504, 0, 196616, 917504, 0, 262152, 917504, 0, 327688, 917504, 0, -1310705, 262144, 10, -1245169, 262144, 11, -1179633, 262144, 11, -1114097, 262144, 11, -1048561, 262144, 11, -983025, 262144, 11, -917489, 262144, 11, -851953, 262144, 11, -786417, 262144, 11, -720881, 262144, 11, -655345, 262144, 11, -589809, 262144, 11, -524273, 262144, 11, -196593, 262144, 11, -131057, 262144, 11, -65521, 262144, 11, -1310704, 327680, 10, -1245168, 327680, 11, -1179632, 327680, 11, -1114096, 327680, 11, -1048560, 327680, 11, -983024, 327680, 11, -917488, 327680, 11, -851952, 327680, 11, -786416, 327680, 11, -720880, 327680, 11, -655344, 327680, 11, -589808, 327680, 11, -524272, 327680, 11, -196592, 327680, 11, -131056, 327680, 11, -65520, 327680, 11, -1572829, 917504, 0, -1507293, 917504, 0, -1441757, 917504, 0, -1376221, 917504, 0, -1310685, 917504, 0, -1245149, 917504, 0, -1179613, 917504, 0, -1114077, 917504, 0, -1048541, 917504, 0, -983005, 917504, 0, -917469, 917504, 0, -851933, 917504, 0, -786397, 917504, 0, -720861, 917504, 0, -655325, 917504, 0, -589789, 917504, 0, -524253, 917504, 0, -458717, 917504, 0, -393181, 917504, 0, -327645, 917504, 0, -262109, 917504, 0, -196573, 917504, 0, -131037, 917504, 0, -65501, 917504, 0, 35, 917504, 0, 65571, 917504, 0, 131107, 917504, 0, 196643, 917504, 0, 262179, 917504, 0, 327715, 917504, 0, 393251, 917504, 0, 19, 917504, 0, 18, 917504, 0, 20, 917504, 0, 21, 917504, 0, 22, 917504, 0, 23, 917504, 0, -458734, 917504, 0, -458733, 917504, 0, -458732, 917504, 0, -458731, 917504, 0, -458730, 917504, 0, -458729, 917504, 0, -458728, 917504, 0, -917486, 917504, 0, -917485, 917504, 0, -917484, 917504, 0, -917483, 917504, 0, -917482, 917504, 0, -917481, 917504, 0, -917480, 917504, 0, 458760, 917504, 0, 524296, 917504, 0, 589832, 917504, 0, 655368, 917504, 0, 655369, 917504, 0, 655370, 917504, 0, 655371, 917504, 0, 655372, 917504, 0, 655374, 917504, 0, 655373, 917504, 0, 655375, 917504, 0, 655376, 917504, 0, 655377, 917504, 0, 655378, 917504, 0, 655379, 917504, 0, 655380, 917504, 0, 655381, 917504, 0, 655382, 917504, 0, 655383, 917504, 0, 655384, 917504, 0, 655385, 917504, 0, 655386, 917504, 0, 655387, 917504, 0, 655388, 917504, 0, 655389, 917504, 0, 655390, 917504, 0, 655393, 917504, 0, 655394, 917504, 0, 655395, 917504, 0, 589859, 917504, 0, 524323, 917504, 0, 458787, 917504, 0, 655392, 917504, 0, 655391, 917504, 0, -458737, 589824, 22, -458736, 655360, 22, -262129, 589824, 21, -262128, 655360, 21, 15, 589824, 23, 16, 655360, 23, -458727, 917504, 0, -917479, 917504, 0, 24, 917504, 0, 25, 917504, 0)
+
+[node name="AreaDead" type="Area2D" parent="."]
+position = Vector2(154, 86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDead"]
+position = Vector2(198, 66)
+shape = SubResource("RectangleShape2D_jda2j")
+
+[node name="Railing" type="TileMap" parent="."]
+z_index = 20
+tile_set = ExtResource("4_62oag")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65514, 786432, 21, -65513, 786432, 21, -65512, 786432, 21, -65511, 786432, 21, -524270, 786432, 21, -524269, 786432, 21, -524268, 786432, 21, -524267, 786432, 21, -524266, 786432, 21, -524265, 786432, 21, -524264, 786432, 21, -524263, 786432, 21, -983022, 786432, 21, -983021, 786432, 21, -983020, 786432, 21, -983019, 786432, 21, -983018, 786432, 21, -983017, 786432, 21, -983016, 786432, 21, -983015, 786432, 21, -65518, 786432, 21, -65517, 786432, 21, -65516, 786432, 21, -65515, 786432, 21, -983014, 851968, 21, -524262, 851968, 21, -65510, 851968, 21, -65519, 720896, 21, -524271, 720896, 21, -983023, 720896, 21)
+
+[node name="AreaNotice" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaNotice"]
+position = Vector2(298, -10)
+shape = SubResource("RectangleShape2D_xr071")
+
+[node name="GhostPath" parent="." instance=ExtResource("5_7bq8u")]
+position = Vector2(192, -183)
+path_width = 8
+
+[node name="SpiderDrop" parent="." instance=ExtResource("6_qnyi3")]
+position = Vector2(290, -209)
+drop_height = 80
+
+[connection signal="window_opened" from="AreaWindowF3" to="." method="_on_area_window_f_3_window_opened"]
+[connection signal="window_opened" from="AreaWindowF4" to="." method="_on_area_window_f_4_window_opened"]
+[connection signal="window_opened" from="AreaWindowF5" to="." method="_on_area_window_f_5_window_opened"]
+[connection signal="body_entered" from="AreaDead" to="." method="_on_area_dead_body_entered"]
+[connection signal="body_entered" from="AreaNotice" to="." method="_on_area_notice_body_entered"]

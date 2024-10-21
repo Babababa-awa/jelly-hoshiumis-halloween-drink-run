@@ -1,0 +1,171 @@
+[gd_scene load_steps=18 format=3 uid="uid://dqkpoq335r7u8"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/fourth_floor_hallway.gd" id="1_awb0k"]
+[ext_resource type="PackedScene" uid="uid://dcdgo8bgtm3xm" path="res://Scenes/Levels/Apartment/Base/hallway.tscn" id="2_v0w7j"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="3_4ho0p"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="4_m3xa6"]
+[ext_resource type="PackedScene" uid="uid://j7ahjtwls0ra" path="res://Scenes/Levels/Apartment/Text/floor.tscn" id="5_o2oq8"]
+[ext_resource type="PackedScene" uid="uid://cfhn3somyqsqr" path="res://Scenes/Levels/Apartment/Text/apartment_number.tscn" id="6_mt8k6"]
+[ext_resource type="PackedScene" uid="uid://ckxhixn86vdbv" path="res://Scenes/Levels/Apartment/Text/door_floor.tscn" id="7_hrndk"]
+[ext_resource type="PackedScene" uid="uid://da8qwlgkjyv1p" path="res://Scenes/Levels/Apartment/Text/fire_exit.tscn" id="8_pkodj"]
+[ext_resource type="PackedScene" uid="uid://6o0hcae1bhpk" path="res://Scenes/Levels/Apartment/Text/service.tscn" id="9_tnqnb"]
+[ext_resource type="PackedScene" uid="uid://lje1niltkiiy" path="res://Scenes/Levels/Apartment/Components/window.tscn" id="10_2as3o"]
+[ext_resource type="PackedScene" uid="uid://cj0kt44nnep5p" path="res://Scenes/Units/ghost_path.tscn" id="11_sfgjx"]
+[ext_resource type="PackedScene" uid="uid://dppf1m8t67umv" path="res://Scenes/Units/glass.tscn" id="12_236sg"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="13_qqd4m"]
+[ext_resource type="PackedScene" uid="uid://b7t7ip3j04ekr" path="res://Scenes/Units/glass_single.tscn" id="14_57qvq"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="15_tkla2"]
+[ext_resource type="PackedScene" uid="uid://8wvt3doawl41" path="res://Scenes/Units/rrat_hole.tscn" id="16_b47r5"]
+[ext_resource type="PackedScene" uid="uid://bksls58wop7do" path="res://Scenes/Levels/Apartment/Components/painting_1.tscn" id="16_rk11b"]
+
+[node name="FourthFloorHallway" type="Node2D"]
+script = ExtResource("1_awb0k")
+
+[node name="Hallway" parent="." instance=ExtResource("2_v0w7j")]
+
+[node name="Apt41Door" parent="." instance=ExtResource("3_4ho0p")]
+position = Vector2(752, -16)
+
+[node name="Apt42Door" parent="." instance=ExtResource("3_4ho0p")]
+position = Vector2(192, -16)
+
+[node name="Door" parent="." instance=ExtResource("4_m3xa6")]
+position = Vector2(1136, -16)
+door_type = "Fire"
+
+[node name="Floor" parent="." instance=ExtResource("5_o2oq8")]
+position = Vector2(1304, -52)
+floor_number = 4
+
+[node name="ApartmentNumber41" parent="." instance=ExtResource("6_mt8k6")]
+position = Vector2(789, -48)
+floor_number = 4
+
+[node name="ApartmentNumber42" parent="." instance=ExtResource("6_mt8k6")]
+position = Vector2(229, -48)
+floor_number = 4
+apartment_number = 2
+
+[node name="AreaDoorFloorUp" parent="." instance=ExtResource("3_4ho0p")]
+position = Vector2(1200, -16)
+door_type = "Fire"
+
+[node name="AreaDoorFloorDown" parent="." instance=ExtResource("3_4ho0p")]
+position = Vector2(1488, -16)
+door_type = "Fire"
+
+[node name="DoorFloorUp" parent="." instance=ExtResource("7_hrndk")]
+position = Vector2(1200, -68)
+floor_number = 5
+
+[node name="DoorFloorDown" parent="." instance=ExtResource("7_hrndk")]
+position = Vector2(1488, -68)
+direction = "Down"
+
+[node name="AreaDoorServiceShaft" parent="." instance=ExtResource("3_4ho0p")]
+position = Vector2(480, -16)
+lock_name = "service_door_4"
+
+[node name="FireExit" parent="." instance=ExtResource("8_pkodj")]
+position = Vector2(32, -64)
+
+[node name="Service" parent="." instance=ExtResource("9_tnqnb")]
+position = Vector2(464, -70)
+
+[node name="WindowFireEscape" parent="." instance=ExtResource("10_2as3o")]
+position = Vector2(0, -16)
+
+[node name="GhostPath" parent="." instance=ExtResource("11_sfgjx")]
+position = Vector2(1264, -32)
+path_width = 12
+
+[node name="Glass" parent="." instance=ExtResource("12_236sg")]
+position = Vector2(1264, -16)
+
+[node name="Glass2" parent="." instance=ExtResource("12_236sg")]
+position = Vector2(1312, -16)
+
+[node name="SpiderDrop" parent="." instance=ExtResource("13_qqd4m")]
+position = Vector2(1438, -80)
+
+[node name="GlassSingle" parent="." instance=ExtResource("14_57qvq")]
+position = Vector2(1017, -16)
+tile = 2
+
+[node name="GlassSingle2" parent="." instance=ExtResource("14_57qvq")]
+position = Vector2(950, -16)
+tile = 3
+
+[node name="GhostPath2" parent="." instance=ExtResource("11_sfgjx")]
+position = Vector2(812, -32)
+path_width = 7
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("15_tkla2")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131020, 983040, 11, -131019, 1048576, 11, -131018, 1114112, 11, -131022, 851968, 14, -131021, 917504, 14, -131017, 851968, 13, -131015, 851968, 0, -196513, 851968, 1, -130977, 851968, 2, -196512, 917504, 1, -130976, 917504, 2, -393120, 589824, 11, -393143, 655360, 11, -393134, 851968, 10, -393133, 917504, 10, -393175, 720896, 11, -262100, 1310720, 9, -196564, 1310720, 10, -262099, 1376256, 9, -196563, 1376256, 10, -131036, 851968, 0, -196566, 851968, 1, -131030, 851968, 2, -196565, 917504, 1, -131029, 917504, 2, -131028, 458752, 2, -393200, 851968, 10, -393199, 917504, 10, -393169, 589824, 11, -393168, 655360, 11, -393195, 589824, 11, -393194, 655360, 11)
+
+[node name="Painting1" parent="." instance=ExtResource("16_rk11b")]
+position = Vector2(592, -24)
+
+[node name="RratHole3" parent="." instance=ExtResource("16_b47r5")]
+position = Vector2(560, -16)
+
+[node name="SpiderDrop4" parent="." instance=ExtResource("13_qqd4m")]
+position = Vector2(575, -80)
+
+[node name="SpiderDrop3" parent="." instance=ExtResource("13_qqd4m")]
+position = Vector2(960, -80)
+
+[node name="SpiderDrop2" parent="." instance=ExtResource("13_qqd4m")]
+position = Vector2(1043, -80)
+
+[node name="GhostPath3" parent="." instance=ExtResource("11_sfgjx")]
+position = Vector2(512, -32)
+path_width = 6
+
+[node name="GhostPath4" parent="." instance=ExtResource("11_sfgjx")]
+position = Vector2(608, -48)
+layer_0/tile_data = PackedInt32Array(131067, 786432, 10, 65517, 983040, 0, 131053, 983040, 1, 65519, 983040, 0, 131055, 983040, 1, 65521, 983040, 0, 131057, 983040, 1, 65523, 983040, 0, 131059, 983040, 1)
+path_width = 7
+
+[node name="SpiderDrop5" parent="." instance=ExtResource("13_qqd4m")]
+position = Vector2(427, -80)
+
+[node name="GhostPath5" parent="." instance=ExtResource("11_sfgjx")]
+position = Vector2(272, -48)
+path_width = 11
+
+[node name="RratHole2" parent="." instance=ExtResource("16_b47r5")]
+position = Vector2(928, -16)
+
+[node name="GlassSingle5" parent="." instance=ExtResource("14_57qvq")]
+position = Vector2(384, -16)
+tile = 3
+
+[node name="RratHole4" parent="." instance=ExtResource("16_b47r5")]
+position = Vector2(32, -16)
+
+[node name="SpiderDrop6" parent="." instance=ExtResource("13_qqd4m")]
+position = Vector2(36, -80)
+
+[node name="SpiderDrop7" parent="." instance=ExtResource("13_qqd4m")]
+position = Vector2(103, -80)
+
+[node name="GhostPath6" parent="." instance=ExtResource("11_sfgjx")]
+position = Vector2(32, -32)
+path_width = 9
+
+[node name="GlassSingle3" parent="." instance=ExtResource("14_57qvq")]
+position = Vector2(320, -16)
+
+[node name="GlassSingle4" parent="." instance=ExtResource("14_57qvq")]
+position = Vector2(352, -16)
+tile = 2
+
+[connection signal="door_opened" from="Apt41Door" to="." method="_on_apt_41_door_door_opened"]
+[connection signal="door_opened" from="Apt42Door" to="." method="_on_apt_42_door_door_opened"]
+[connection signal="door_opened" from="AreaDoorFloorUp" to="." method="_on_area_door_floor_up_door_opened"]
+[connection signal="door_opened" from="AreaDoorFloorDown" to="." method="_on_area_door_floor_down_door_opened"]
+[connection signal="door_opened" from="AreaDoorServiceShaft" to="." method="_on_area_door_service_shaft_door_opened"]
+[connection signal="window_opened" from="WindowFireEscape" to="." method="_on_window_fire_escape_window_opened"]

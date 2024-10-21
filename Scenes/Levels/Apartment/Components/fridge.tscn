@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://csqebeabgie55"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_kfitd"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/Components/fridge.gd" id="2_8se3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7278h"]
+size = Vector2(48, 48)
+
+[node name="Fridge" type="TileMap"]
+tile_set = ExtResource("1_kfitd")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196608, 589824, 6, -131072, 589824, 7, -65536, 589824, 8, -196607, 655360, 6, -131071, 655360, 7, -65535, 655360, 8)
+script = ExtResource("2_8se3w")
+
+[node name="AreaFridge" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFridge"]
+position = Vector2(16, -24)
+shape = SubResource("RectangleShape2D_7278h")
+
+[connection signal="body_entered" from="AreaFridge" to="." method="_on_area_fridge_body_entered"]
+[connection signal="body_exited" from="AreaFridge" to="." method="_on_area_fridge_body_exited"]

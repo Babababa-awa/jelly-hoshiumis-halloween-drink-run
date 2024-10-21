@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp3hl12a2kdqn"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_64jas"]
+[ext_resource type="Script" path="res://Scenes/Units/spider_drop.gd" id="2_0uh4j"]
+[ext_resource type="PackedScene" uid="uid://bfdo4oeq6day7" path="res://Scenes/Units/spider.tscn" id="2_4iyu6"]
+
+[node name="SpiderDrop" type="TileMap"]
+tile_set = ExtResource("1_64jas")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 589824, 11, -65535, 655360, 11)
+script = ExtResource("2_0uh4j")
+
+[node name="Spider" parent="." instance=ExtResource("2_4iyu6")]
+position = Vector2(16, 2)

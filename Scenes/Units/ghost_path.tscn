@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj0kt44nnep5p"]
+
+[ext_resource type="PackedScene" uid="uid://bx4xm8dpafn8l" path="res://Scenes/Units/ghost.tscn" id="1_j4fmr"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_l1wn0"]
+[ext_resource type="Script" path="res://Scenes/Units/ghost_path.gd" id="1_o51e7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ecb"]
+size = Vector2(4, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0yam"]
+size = Vector2(4, 20)
+
+[node name="GhostPath" type="TileMap"]
+tile_set = ExtResource("1_l1wn0")
+format = 2
+script = ExtResource("1_o51e7")
+
+[node name="Ghost" parent="." instance=ExtResource("1_j4fmr")]
+position = Vector2(40, 0)
+
+[node name="AreaLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLeft"]
+position = Vector2(2, -10)
+shape = SubResource("RectangleShape2D_f6ecb")
+
+[node name="AreaRight" type="Area2D" parent="."]
+position = Vector2(80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRight"]
+position = Vector2(-2, -10)
+shape = SubResource("RectangleShape2D_x0yam")
+
+[connection signal="body_entered" from="AreaLeft" to="." method="_on_area_left_body_entered"]
+[connection signal="body_entered" from="AreaRight" to="." method="_on_area_right_body_entered"]

@@ -1,0 +1,18 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://gd2ytpotfqkd"]
+
+[ext_resource type="Texture2D" uid="uid://yytd5khttvh1" path="res://Assets/speech_bubble.png" id="1_uys7y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1cmn"]
+texture = ExtResource("1_uys7y")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_j1cmn")

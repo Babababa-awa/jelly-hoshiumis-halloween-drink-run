@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2l6vcnibe762"]
+
+[ext_resource type="Script" path="res://Scenes/UI/settings.gd" id="1_naokw"]
+
+[node name="Settings" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_naokw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.768627)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="LabelMusic" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 2
+
+[node name="HSliderMusic" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="LabelSFX" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "SFX"
+horizontal_alignment = 2
+
+[node name="HSliderSFX" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="LabelRain" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Rain"
+
+[node name="HSliderRain" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="CheckBoxRain" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Enable Rain Effect"
+
+[node name="ButtonOk" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+text = "OK"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/HSliderSFX" to="." method="_on_h_slider_sfx_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/HSliderRain" to="." method="_on_h_slider_rain_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/CheckBoxRain" to="." method="_on_check_box_rain_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonOk" to="." method="_on_button_ok_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw43r1xrpi7u3"]
+
+[ext_resource type="TileSet" uid="uid://gd2ytpotfqkd" path="res://Resources/TileSets/speech_bubble.tres" id="1_o6g4h"]
+[ext_resource type="Script" path="res://Scenes/Units/speech_bubble.gd" id="2_fitgt"]
+
+[node name="SpeechBubble" type="TileMap"]
+tile_set = ExtResource("1_o6g4h")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 0, 0, -65536, 0, 1, -131071, 65536, 0, -65535, 65536, 1, -131070, 131072, 0, -65534, 131072, 1)
+script = ExtResource("2_fitgt")
+direction = "Left"
+
+[node name="Text" type="Label" parent="."]
+offset_left = 3.0
+offset_top = -29.0
+offset_right = 171.0
+offset_bottom = 51.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 16
+text = "The door is 
+locked!"
+horizontal_alignment = 1
+vertical_alignment = 1

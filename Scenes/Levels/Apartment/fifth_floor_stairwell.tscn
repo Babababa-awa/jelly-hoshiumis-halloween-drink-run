@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqtra7veovwek"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/fifth_floor_stairwell.gd" id="1_ox5r0"]
+[ext_resource type="PackedScene" uid="uid://f2d14ygchj06" path="res://Scenes/Levels/Apartment/Base/stairwell.tscn" id="2_yluqv"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="3_6rv62"]
+[ext_resource type="PackedScene" uid="uid://djffcwcmsvhgl" path="res://Scenes/Levels/Apartment/Text/door_floor_stairwell.tscn" id="4_v7oka"]
+[ext_resource type="PackedScene" uid="uid://da2xtiwouvjja" path="res://Scenes/Levels/Apartment/Text/door_floor_stairwell_roof.tscn" id="5_0vjig"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="6_inu60"]
+[ext_resource type="PackedScene" uid="uid://b7t7ip3j04ekr" path="res://Scenes/Units/glass_single.tscn" id="7_7pi25"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="8_ntypp"]
+
+[node name="FifthFloorStairwell" type="Node2D"]
+script = ExtResource("1_ox5r0")
+
+[node name="Stairwell" parent="." instance=ExtResource("2_yluqv")]
+
+[node name="AreaDoorBottom" parent="." instance=ExtResource("3_6rv62")]
+position = Vector2(336, -16)
+door_type = "Fire"
+
+[node name="AreaDoorTop" parent="." instance=ExtResource("3_6rv62")]
+position = Vector2(48, -128)
+door_type = "Fire"
+
+[node name="DoorFloorStairwellF5" parent="." instance=ExtResource("4_v7oka")]
+position = Vector2(336, -68)
+floor_number = 5
+
+[node name="DoorFloorStairwellRoof" parent="." instance=ExtResource("5_0vjig")]
+position = Vector2(56, -181)
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("6_inu60")
+format = 2
+layer_0/tile_data = PackedInt32Array(-589818, 458752, 2, -589819, 851968, 13, -655355, 851968, 14, -655354, 917504, 14, -851967, 655360, 11, -720885, 786432, 11, -655349, 917504, 11, -196585, 851968, 1, -131049, 851968, 2, -196584, 917504, 1, -131048, 917504, 2, -327667, 851968, 0, -327656, 851968, 11)
+
+[node name="GlassSingle" parent="." instance=ExtResource("7_7pi25")]
+position = Vector2(112, -112)
+
+[node name="SpiderDrop" parent="." instance=ExtResource("8_ntypp")]
+position = Vector2(212, -192)
+drop_height = 100
+
+[connection signal="door_opened" from="AreaDoorBottom" to="." method="_on_area_door_bottom_door_opened"]
+[connection signal="door_opened" from="AreaDoorTop" to="." method="_on_area_door_top_door_opened"]

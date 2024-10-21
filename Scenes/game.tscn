@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfd0h343oq8ci"]
+
+[ext_resource type="PackedScene" uid="uid://c5otj1ioj7s54" path="res://Scenes/Units/player.tscn" id="1_4bhs7"]
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_hfjhp"]
+[ext_resource type="PackedScene" uid="uid://p74dn1ojqcv8" path="res://Scenes/Backgrounds/sky.tscn" id="3_468bg"]
+[ext_resource type="PackedScene" uid="uid://f8qormnjloar" path="res://Scenes/Backgrounds/rain.tscn" id="3_aviem"]
+[ext_resource type="PackedScene" uid="uid://bhe7iuaasgg44" path="res://Scenes/hud.tscn" id="3_lj0wf"]
+[ext_resource type="PackedScene" uid="uid://d03yqycpab6po" path="res://Scenes/UI/menu.tscn" id="4_2kplb"]
+[ext_resource type="PackedScene" uid="uid://b2l6vcnibe762" path="res://Scenes/UI/settings.tscn" id="4_5cf46"]
+[ext_resource type="PackedScene" uid="uid://rf6sp7mmnmll" path="res://Scenes/UI/pause.tscn" id="6_djj27"]
+[ext_resource type="PackedScene" uid="uid://bbsa4k624k273" path="res://Scenes/UI/controls.tscn" id="6_uesuj"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_hfjhp")
+
+[node name="Sky" parent="." instance=ExtResource("3_468bg")]
+
+[node name="Rain" parent="." instance=ExtResource("3_aviem")]
+
+[node name="Level" type="Node2D" parent="."]
+visible = false
+
+[node name="Player" parent="Level" instance=ExtResource("1_4bhs7")]
+visible = false
+z_index = 1
+position = Vector2(66, -16)
+
+[node name="Camera" type="Camera2D" parent="Level/Player"]
+position = Vector2(6, -25)
+zoom = Vector2(8, 8)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="UI" instance=ExtResource("3_lj0wf")]
+visible = false
+
+[node name="Menu" parent="UI" instance=ExtResource("4_2kplb")]
+
+[node name="Settings" parent="UI" instance=ExtResource("4_5cf46")]
+visible = false
+
+[node name="Controls" parent="UI" instance=ExtResource("6_uesuj")]
+visible = false
+
+[node name="Pause" parent="UI" instance=ExtResource("6_djj27")]
+visible = false

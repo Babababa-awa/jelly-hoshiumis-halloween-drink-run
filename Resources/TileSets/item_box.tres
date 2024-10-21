@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cnad33ch5yk01"]
+
+[ext_resource type="Texture2D" uid="uid://d4i3yqe2bf1d4" path="res://Assets/item_box.png" id="1_as80j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biewi"]
+texture = ExtResource("1_as80j")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_frame_0/duration = 0.25
+0:0/animation_frame_1/duration = 0.25
+0:0/animation_frame_2/duration = 0.25
+0:0/animation_frame_3/duration = 0.25
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_biewi")

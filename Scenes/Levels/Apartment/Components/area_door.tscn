@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch8jsclq6p2mb"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/Components/area_door.gd" id="1_4laqu"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_rehnt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i54fm"]
+size = Vector2(32, 52)
+
+[node name="AreaDoor" type="TileMap"]
+tile_set = ExtResource("1_rehnt")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196608, 327680, 0, -131072, 327680, 1, -65536, 327680, 2, -196607, 393216, 0, -131071, 393216, 1, -65535, 393216, 2)
+script = ExtResource("1_4laqu")
+
+[node name="AreaVicinity" type="Area2D" parent="."]
+position = Vector2(10, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVicinity"]
+position = Vector2(6, -16)
+shape = SubResource("RectangleShape2D_i54fm")
+
+[connection signal="body_entered" from="AreaVicinity" to="." method="_on_area_vicinity_body_entered"]
+[connection signal="body_exited" from="AreaVicinity" to="." method="_on_area_vicinity_body_exited"]

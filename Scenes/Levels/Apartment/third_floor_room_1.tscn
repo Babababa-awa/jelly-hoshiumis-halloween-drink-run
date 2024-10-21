@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq7btuqswpayt"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/third_floor_room_1.gd" id="1_7mpx2"]
+[ext_resource type="PackedScene" uid="uid://cph1ggwsooqrm" path="res://Scenes/Levels/Apartment/Base/room4.tscn" id="1_j6j4i"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="3_x07q7"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="4_dsdvf"]
+
+[node name="ThirdFloorRoom1" type="Node2D"]
+script = ExtResource("1_7mpx2")
+
+[node name="Room" parent="." instance=ExtResource("1_j6j4i")]
+
+[node name="Door" parent="Room" instance=ExtResource("3_x07q7")]
+position = Vector2(272, -16)
+
+[node name="AreaDoor" parent="Room" instance=ExtResource("4_dsdvf")]
+position = Vector2(352, -16)
+
+[connection signal="door_opened" from="Room/AreaDoor" to="." method="_on_area_door_door_opened"]

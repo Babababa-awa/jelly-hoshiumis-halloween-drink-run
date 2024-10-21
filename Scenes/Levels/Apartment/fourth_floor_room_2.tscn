@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf8t62a8ve5qa"]
+
+[ext_resource type="PackedScene" uid="uid://cdv5qp7n4omow" path="res://Scenes/Levels/Apartment/Base/room3.tscn" id="1_b5nrp"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/fourth_floor_room_2.gd" id="1_lphy0"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="3_7cepo"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="4_3g25r"]
+[ext_resource type="PackedScene" uid="uid://dh0qldhha01sw" path="res://Scenes/Levels/Apartment/Components/bed.tscn" id="5_bqc7t"]
+[ext_resource type="PackedScene" uid="uid://csqebeabgie55" path="res://Scenes/Levels/Apartment/Components/fridge.tscn" id="6_x3dwq"]
+[ext_resource type="PackedScene" uid="uid://c7lcyl2lrtxdp" path="res://Scenes/Levels/Apartment/Components/table.tscn" id="7_lxd8u"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="8_2x5no"]
+[ext_resource type="PackedScene" uid="uid://0h3tfgvfrlbr" path="res://Scenes/Levels/Apartment/Components/painting_2.tscn" id="9_mk2ew"]
+
+[node name="FourthFloorRoom2" type="Node2D"]
+script = ExtResource("1_lphy0")
+
+[node name="Room3" parent="." instance=ExtResource("1_b5nrp")]
+
+[node name="Door" parent="." instance=ExtResource("3_7cepo")]
+position = Vector2(272, -16)
+
+[node name="AreaDoor" parent="." instance=ExtResource("4_3g25r")]
+position = Vector2(352, -16)
+
+[node name="Bed" parent="." instance=ExtResource("5_bqc7t")]
+position = Vector2(12, -16)
+
+[node name="Fridge" parent="." instance=ExtResource("6_x3dwq")]
+position = Vector2(520, -16)
+
+[node name="Table" parent="." instance=ExtResource("7_lxd8u")]
+position = Vector2(400, -16)
+layer_0/tile_data = PackedInt32Array(-131072, 983040, 0, -65536, 983040, 1, -131071, 393216, 6, -65535, 393216, 7, -131070, 458752, 6, -65534, 458752, 7, -131069, 524288, 6, -65533, 524288, 7, -131068, 983040, 0, -65532, 983040, 1, -20, 393216, 6, -19, 458752, 6, -18, 524288, 6)
+
+[node name="Plants" type="TileMap" parent="."]
+position = Vector2(16, 5)
+tile_set = ExtResource("8_2x5no")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262139, 1114112, 13, -196603, 1114112, 14, -262118, 1179648, 14)
+
+[node name="Painting2" parent="." instance=ExtResource("9_mk2ew")]
+position = Vector2(160, -16)
+
+[connection signal="door_opened" from="AreaDoor" to="." method="_on_area_door_door_opened"]
+[connection signal="fridge_closed" from="Fridge" to="." method="_on_fridge_fridge_closed"]
+[connection signal="fridge_opened" from="Fridge" to="." method="_on_fridge_fridge_opened"]

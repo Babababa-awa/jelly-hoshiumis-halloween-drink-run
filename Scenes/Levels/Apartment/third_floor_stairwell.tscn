@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bura4gak0had0"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/third_floor_stairwell.gd" id="1_lhpfp"]
+[ext_resource type="PackedScene" uid="uid://f2d14ygchj06" path="res://Scenes/Levels/Apartment/Base/stairwell.tscn" id="2_6lndp"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="3_jxsk0"]
+[ext_resource type="PackedScene" uid="uid://djffcwcmsvhgl" path="res://Scenes/Levels/Apartment/Text/door_floor_stairwell.tscn" id="4_vpjqh"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="5_jbc0h"]
+[ext_resource type="PackedScene" uid="uid://b7t7ip3j04ekr" path="res://Scenes/Units/glass_single.tscn" id="6_1ufn2"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="7_dlbdc"]
+
+[node name="ThirdFloorStairwell" type="Node2D"]
+script = ExtResource("1_lhpfp")
+
+[node name="Stairwell" parent="." instance=ExtResource("2_6lndp")]
+
+[node name="AreaDoorBottom" parent="." instance=ExtResource("3_jxsk0")]
+position = Vector2(336, -16)
+door_type = "Fire"
+
+[node name="AreaDoorTop" parent="." instance=ExtResource("3_jxsk0")]
+position = Vector2(48, -128)
+door_type = "Fire"
+
+[node name="DoorFloorStairwellF3" parent="." instance=ExtResource("4_vpjqh")]
+position = Vector2(336, -68)
+
+[node name="DoorFloorStairwellF4" parent="." instance=ExtResource("4_vpjqh")]
+position = Vector2(48, -180)
+floor_number = 4
+
+[node name="SpiderDrop" parent="." instance=ExtResource("5_jbc0h")]
+position = Vector2(285, -192)
+drop_height = 96
+
+[node name="GlassSingle" parent="." instance=ExtResource("6_1ufn2")]
+position = Vector2(240, -48)
+
+[node name="GlassSingle2" parent="." instance=ExtResource("6_1ufn2")]
+position = Vector2(144, -96)
+tile = 2
+
+[node name="SpiderDrop2" parent="." instance=ExtResource("5_jbc0h")]
+position = Vector2(84, -192)
+
+[node name="GlassSingle3" parent="." instance=ExtResource("6_1ufn2")]
+position = Vector2(112, -112)
+tile = 3
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("7_dlbdc")
+format = 2
+layer_0/tile_data = PackedInt32Array(-458738, 1572864, 9, -393202, 1572864, 10, -589805, 917504, 11, -786422, 786432, 11, -720874, 851968, 11, -851956, 589824, 11, -851955, 655360, 11, -655359, 983040, 0, -589823, 983040, 1, -131048, 851968, 0)
+
+[connection signal="door_opened" from="AreaDoorBottom" to="." method="_on_area_door_bottom_door_opened"]
+[connection signal="door_opened" from="AreaDoorTop" to="." method="_on_area_door_top_door_opened"]

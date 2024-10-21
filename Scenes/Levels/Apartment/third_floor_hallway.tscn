@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=3 uid="uid://badrhoksnlhqg"]
+
+[ext_resource type="PackedScene" uid="uid://dcdgo8bgtm3xm" path="res://Scenes/Levels/Apartment/Base/hallway.tscn" id="1_71sgk"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/third_floor_hallway.gd" id="1_yge1d"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="2_b2iha"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="4_8bsy4"]
+[ext_resource type="PackedScene" uid="uid://j7ahjtwls0ra" path="res://Scenes/Levels/Apartment/Text/floor.tscn" id="5_3xack"]
+[ext_resource type="PackedScene" uid="uid://cfhn3somyqsqr" path="res://Scenes/Levels/Apartment/Text/apartment_number.tscn" id="6_gk3an"]
+[ext_resource type="PackedScene" uid="uid://ckxhixn86vdbv" path="res://Scenes/Levels/Apartment/Text/door_floor.tscn" id="7_0qm3o"]
+[ext_resource type="PackedScene" uid="uid://dppf1m8t67umv" path="res://Scenes/Units/glass.tscn" id="8_mkha8"]
+[ext_resource type="PackedScene" uid="uid://8wvt3doawl41" path="res://Scenes/Units/rrat_hole.tscn" id="9_6r6yq"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="10_6o6pi"]
+[ext_resource type="PackedScene" uid="uid://lje1niltkiiy" path="res://Scenes/Levels/Apartment/Components/window.tscn" id="11_5dlc5"]
+[ext_resource type="PackedScene" uid="uid://6o0hcae1bhpk" path="res://Scenes/Levels/Apartment/Text/service.tscn" id="11_l252a"]
+[ext_resource type="PackedScene" uid="uid://di7nqwyjrfua4" path="res://Scenes/Levels/Apartment/Components/boards.tscn" id="12_8a2ql"]
+[ext_resource type="PackedScene" uid="uid://da8qwlgkjyv1p" path="res://Scenes/Levels/Apartment/Text/fire_exit.tscn" id="12_a8t0n"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="12_g7xcu"]
+
+[node name="ThirdFloorHallway" type="Node2D"]
+script = ExtResource("1_yge1d")
+
+[node name="Hallway" parent="." instance=ExtResource("1_71sgk")]
+
+[node name="JellyDoor" parent="." instance=ExtResource("2_b2iha")]
+position = Vector2(192, -16)
+
+[node name="Apt31Door" parent="." instance=ExtResource("2_b2iha")]
+position = Vector2(752, -16)
+barricaded = true
+
+[node name="Door" parent="." instance=ExtResource("4_8bsy4")]
+position = Vector2(1136, -16)
+door_type = "Fire"
+
+[node name="Floor" parent="." instance=ExtResource("5_3xack")]
+position = Vector2(1304, -52)
+floor_number = 3
+
+[node name="ApartmentNumber31" parent="." instance=ExtResource("6_gk3an")]
+position = Vector2(789, -48)
+
+[node name="ApartmentNumber32" parent="." instance=ExtResource("6_gk3an")]
+position = Vector2(229, -48)
+apartment_number = 2
+
+[node name="AreaDoorFloorUp" parent="." instance=ExtResource("2_b2iha")]
+position = Vector2(1200, -16)
+door_type = "Fire"
+
+[node name="AreaDoorFloorDown" parent="." instance=ExtResource("2_b2iha")]
+position = Vector2(1488, -16)
+door_type = "Fire"
+barricaded = true
+
+[node name="DoorFloorUp" parent="." instance=ExtResource("7_0qm3o")]
+position = Vector2(1200, -68)
+floor_number = 4
+
+[node name="DoorFloorDown" parent="." instance=ExtResource("7_0qm3o")]
+position = Vector2(1488, -68)
+floor_number = 2
+direction = "Down"
+
+[node name="AreaDoorServiceShaft" parent="." instance=ExtResource("2_b2iha")]
+position = Vector2(480, -16)
+door_type = "Fire"
+lock_name = "service_door_3"
+
+[node name="RratHole2" parent="." instance=ExtResource("9_6r6yq")]
+position = Vector2(512, -16)
+
+[node name="RratHole3" parent="." instance=ExtResource("9_6r6yq")]
+position = Vector2(608, -16)
+
+[node name="RratHole" parent="." instance=ExtResource("9_6r6yq")]
+position = Vector2(32, -16)
+
+[node name="Glass" parent="." instance=ExtResource("8_mkha8")]
+position = Vector2(295, -16)
+
+[node name="Glass2" parent="." instance=ExtResource("8_mkha8")]
+position = Vector2(89, -16)
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("12_g7xcu")
+format = 2
+layer_0/tile_data = PackedInt32Array(-393191, 851968, 10, -393190, 917504, 10, -393159, 720896, 11, -262093, 1310720, 7, -196557, 1310720, 8, -262092, 1376256, 7, -196556, 1376256, 8, -262091, 1441792, 7, -196555, 1441792, 8, -262090, 1507328, 7, -196554, 1507328, 8, -262089, 1572864, 7, -196553, 1572864, 8, -393215, 1441792, 9, -393214, 1507328, 9, -393135, 851968, 10, -393134, 917504, 10)
+
+[node name="Service" parent="." instance=ExtResource("11_l252a")]
+position = Vector2(464, -70)
+
+[node name="FireExit" parent="." instance=ExtResource("12_a8t0n")]
+position = Vector2(32, -64)
+
+[node name="SpiderDrop" parent="." instance=ExtResource("10_6o6pi")]
+position = Vector2(248, -80)
+
+[node name="Boards2" parent="." instance=ExtResource("12_8a2ql")]
+position = Vector2(744, -38)
+
+[node name="SpiderDrop2" parent="." instance=ExtResource("10_6o6pi")]
+position = Vector2(931, -80)
+
+[node name="SpiderDrop3" parent="." instance=ExtResource("10_6o6pi")]
+position = Vector2(1031, -80)
+drop_height = 54
+
+[node name="RratHole4" parent="." instance=ExtResource("9_6r6yq")]
+position = Vector2(959, -16)
+
+[node name="RratHole5" parent="." instance=ExtResource("9_6r6yq")]
+position = Vector2(799, -16)
+
+[node name="RratHole6" parent="." instance=ExtResource("9_6r6yq")]
+position = Vector2(879, -16)
+
+[node name="SpiderDrop4" parent="." instance=ExtResource("10_6o6pi")]
+position = Vector2(1261, -80)
+
+[node name="SpiderDrop5" parent="." instance=ExtResource("10_6o6pi")]
+position = Vector2(1365, -80)
+
+[node name="Boards" parent="." instance=ExtResource("12_8a2ql")]
+position = Vector2(1480, -36)
+
+[node name="Glass3" parent="." instance=ExtResource("8_mkha8")]
+position = Vector2(1251, -16)
+
+[node name="Glass4" parent="." instance=ExtResource("8_mkha8")]
+position = Vector2(1299, -16)
+
+[node name="Glass5" parent="." instance=ExtResource("8_mkha8")]
+position = Vector2(1347, -16)
+
+[node name="WindowFireEscape" parent="." instance=ExtResource("11_5dlc5")]
+position = Vector2(0, -16)
+
+[connection signal="door_opened" from="JellyDoor" to="." method="_on_jelly_door_door_opened"]
+[connection signal="door_opened" from="Apt31Door" to="." method="_on_apt_31_door_door_opened"]
+[connection signal="door_opened" from="AreaDoorFloorUp" to="." method="_on_area_door_floor_up_door_opened"]
+[connection signal="door_opened" from="AreaDoorServiceShaft" to="." method="_on_area_door_service_shaft_door_opened"]
+[connection signal="window_opened" from="WindowFireEscape" to="." method="_on_window_fire_escape_window_opened"]

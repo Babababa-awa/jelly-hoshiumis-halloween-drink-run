@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh0qldhha01sw"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_bpgs1"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/Components/bed.gd" id="2_bui8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3puh"]
+size = Vector2(35, 4)
+
+[node name="Bed" type="TileMap"]
+tile_set = ExtResource("1_bpgs1")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 458752, 0, -65536, 458752, 1, -131071, 524288, 0, -65535, 524288, 1, -131070, 589824, 0, -65534, 589824, 1)
+script = ExtResource("2_bui8e")
+
+[node name="AreaMatress" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaMatress"]
+position = Vector2(25.5, -20)
+shape = SubResource("RectangleShape2D_v3puh")
+
+[connection signal="body_entered" from="AreaMatress" to="." method="_on_area_matress_body_entered"]
+[connection signal="body_exited" from="AreaMatress" to="." method="_on_area_matress_body_exited"]

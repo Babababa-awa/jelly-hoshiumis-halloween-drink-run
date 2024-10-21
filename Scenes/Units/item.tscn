@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0qt00dtbir46"]
+
+[ext_resource type="Script" path="res://Scenes/Units/item.gd" id="1_2quax"]
+[ext_resource type="TileSet" uid="uid://cnsmsct0ai5b5" path="res://Resources/TileSets/items.tres" id="1_tfsy3"]
+[ext_resource type="TileSet" uid="uid://cnad33ch5yk01" path="res://Resources/TileSets/item_box.tres" id="2_uoi6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5817"]
+size = Vector2(32, 32)
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_2quax")
+
+[node name="Image" type="TileMap" parent="."]
+tile_set = ExtResource("1_tfsy3")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 0, 0)
+
+[node name="Box" type="TileMap" parent="."]
+tile_set = ExtResource("2_uoi6x")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 0, 0)
+
+[node name="AreaItem" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaItem"]
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_q5817")
+
+[connection signal="body_entered" from="AreaItem" to="." method="_on_area_item_body_entered"]
+[connection signal="body_exited" from="AreaItem" to="." method="_on_area_item_body_exited"]

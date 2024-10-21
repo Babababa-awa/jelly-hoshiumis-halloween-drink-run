@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://da785cquawn5s"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/fifth_floor_room_1.gd" id="1_1k5pa"]
+[ext_resource type="PackedScene" uid="uid://dmcghjxw0oqki" path="res://Scenes/Levels/Apartment/Base/room6.tscn" id="1_b6xno"]
+[ext_resource type="PackedScene" uid="uid://y7emk8leigvp" path="res://Scenes/Levels/Apartment/Components/door.tscn" id="3_fv2rp"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="4_tettm"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="5_isie7"]
+[ext_resource type="PackedScene" uid="uid://csqebeabgie55" path="res://Scenes/Levels/Apartment/Components/fridge.tscn" id="6_d2p86"]
+
+[node name="FifthFloorRoom1" type="Node2D"]
+script = ExtResource("1_1k5pa")
+
+[node name="Room6" parent="." instance=ExtResource("1_b6xno")]
+
+[node name="Door" parent="." instance=ExtResource("3_fv2rp")]
+position = Vector2(272, -16)
+
+[node name="AreaDoor" parent="." instance=ExtResource("4_tettm")]
+position = Vector2(352, -16)
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("5_isie7")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131071, 983040, 11, -131070, 1048576, 11, -131069, 1114112, 11, -131068, 393216, 6, -131067, 458752, 6, -131066, 524288, 6, -196606, 1507328, 5, -196604, 1572864, 5, -262141, 1638400, 5, -262142, 1638400, 6, -196605, 1572864, 6, -262137, 1507328, 5, -327675, 1572864, 5, -262139, 1572864, 6, -262140, 1638400, 6, -327677, 1572864, 6, -327678, 1507328, 5, -327674, 1638400, 5, -262138, 1638400, 6, -196603, 1507328, 6, -327676, 1507328, 5, -327673, 1572864, 5, -393206, 1769472, 7, -393207, 1703936, 7, -327671, 1703936, 8, -327670, 1769472, 8, -393215, 655360, 11, -393214, 1638400, 7, -393197, 655360, 11, -393199, 589824, 11, -196574, 983040, 0, -131038, 983040, 1, -131047, 851968, 0, -131040, 851968, 0, -196578, 851968, 1, -131042, 851968, 2, -196577, 917504, 1, -131041, 917504, 2, -327651, 1310720, 7, -262115, 1310720, 8, -327650, 1376256, 7, -262114, 1376256, 8, -327649, 1441792, 7, -262113, 1441792, 8, -327648, 1507328, 7, -262112, 1507328, 8, -327647, 1572864, 7, -262111, 1572864, 8, -131063, 851968, 14, -131062, 917504, 14, -131059, 458752, 2, -131061, 851968, 0, -393182, 589824, 11)
+
+[node name="Fridge" parent="." instance=ExtResource("6_d2p86")]
+position = Vector2(431, -16)
+
+[connection signal="door_opened" from="AreaDoor" to="." method="_on_area_door_door_opened"]

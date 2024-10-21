@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://b41nfqmyxpr0j"]
+
+[ext_resource type="PackedScene" uid="uid://bcv2a6ykc8q3j" path="res://Scenes/Levels/Apartment/Base/building.tscn" id="1_1a486"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/fire_escape.gd" id="1_7rduk"]
+[ext_resource type="PackedScene" uid="uid://prs8sl5janxg" path="res://Scenes/Levels/Apartment/Components/long_ladder.tscn" id="2_c3jm5"]
+[ext_resource type="PackedScene" uid="uid://cejqepgft5183" path="res://Scenes/Levels/Apartment/Components/trash_pile.tscn" id="3_bsus8"]
+[ext_resource type="PackedScene" uid="uid://bn8xx6m1c1dyg" path="res://Scenes/Levels/Apartment/Components/trash.tscn" id="4_2ygag"]
+[ext_resource type="PackedScene" uid="uid://bgfpqtfcsmbdy" path="res://Scenes/Levels/Apartment/Components/sakana.tscn" id="6_euyrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ehuw"]
+size = Vector2(64, 36)
+
+[node name="FireEscape" type="Node2D"]
+script = ExtResource("1_7rduk")
+
+[node name="Building" parent="." instance=ExtResource("1_1a486")]
+
+[node name="LongLadder" parent="." instance=ExtResource("2_c3jm5")]
+position = Vector2(368, 0)
+
+[node name="TrashPile" parent="." instance=ExtResource("3_bsus8")]
+position = Vector2(304, 4768)
+
+[node name="Trash" parent="." instance=ExtResource("4_2ygag")]
+position = Vector2(441, 4768)
+
+[node name="Sakana" parent="." instance=ExtResource("6_euyrb")]
+position = Vector2(424, 348)
+
+[node name="AreaSongStart" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSongStart"]
+position = Vector2(384, 1074)
+shape = SubResource("RectangleShape2D_2ehuw")
+
+[connection signal="body_entered" from="AreaSongStart" to="." method="_on_area_song_start_body_entered"]

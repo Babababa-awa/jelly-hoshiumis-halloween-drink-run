@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8qrl8fyqier2"]
+
+[ext_resource type="PackedScene" uid="uid://f2d14ygchj06" path="res://Scenes/Levels/Apartment/Base/stairwell.tscn" id="1_e8bun"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/fourth_floor_stairwell.gd" id="1_fkqha"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="2_75csj"]
+[ext_resource type="PackedScene" uid="uid://djffcwcmsvhgl" path="res://Scenes/Levels/Apartment/Text/door_floor_stairwell.tscn" id="4_fm1nm"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="5_8p6pr"]
+[ext_resource type="PackedScene" uid="uid://b7t7ip3j04ekr" path="res://Scenes/Units/glass_single.tscn" id="6_tc8ys"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="7_uwoh8"]
+
+[node name="FourthFloorStairwell" type="Node2D"]
+script = ExtResource("1_fkqha")
+
+[node name="Stairwell" parent="." instance=ExtResource("1_e8bun")]
+
+[node name="AreaDoorBottom" parent="." instance=ExtResource("2_75csj")]
+position = Vector2(336, -16)
+door_type = "Fire"
+
+[node name="AreaDoorTop" parent="." instance=ExtResource("2_75csj")]
+position = Vector2(48, -128)
+door_type = "Fire"
+
+[node name="DoorFloorStairwellF4" parent="." instance=ExtResource("4_fm1nm")]
+position = Vector2(336, -68)
+floor_number = 4
+
+[node name="DoorFloorStairwellF5" parent="." instance=ExtResource("4_fm1nm")]
+position = Vector2(48, -180)
+floor_number = 5
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("5_8p6pr")
+format = 2
+layer_0/tile_data = PackedInt32Array(-851967, 655360, 11, -131048, 851968, 0, -524281, 851968, 13, -524280, 458752, 2, -589818, 851968, 14, -589817, 917504, 14, -393205, 983040, 11, -393204, 1048576, 11, -393203, 1114112, 11)
+
+[node name="GlassSingle" parent="." instance=ExtResource("6_tc8ys")]
+position = Vector2(280, -32)
+
+[node name="GlassSingle2" parent="." instance=ExtResource("6_tc8ys")]
+position = Vector2(248, -48)
+tile = 2
+
+[node name="SpiderDrop" parent="." instance=ExtResource("7_uwoh8")]
+position = Vector2(250, -192)
+drop_height = 100
+
+[connection signal="door_opened" from="AreaDoorBottom" to="." method="_on_area_door_bottom_door_opened"]
+[connection signal="door_opened" from="AreaDoorTop" to="." method="_on_area_door_top_door_opened"]

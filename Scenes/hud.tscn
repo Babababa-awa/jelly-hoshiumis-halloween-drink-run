@@ -1,0 +1,324 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhe7iuaasgg44"]
+
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_i66ay"]
+[ext_resource type="Theme" uid="uid://cab240ipqwb4e" path="res://Resources/hud_theme.tres" id="2_e3h5b"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_i66ay")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer/ColorRect/MarginContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HungerBarContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer/ColorRect/MarginContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HungerBar" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer/ColorRect/MarginContainer/ColorRect2/HungerBarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(1, 0, 0, 1)
+
+[node name="LabelHunger" type="Label" parent="MarginContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3h5b")
+text = "Hunger"
+
+[node name="Control" type="Control" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer2/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer2/ColorRect/MarginContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnxietyBarContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer2/ColorRect/MarginContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="AnxietyBar" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer2/ColorRect/MarginContainer/ColorRect2/AnxietyBarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(1, 1, 0, 1)
+
+[node name="LabelAnxiety" type="Label" parent="MarginContainer/GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_e3h5b")
+text = "Anxiety"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(464, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 2
+
+[node name="LabelItems" type="Label" parent="MarginContainer/GridContainer/VBoxContainer3/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3h5b")
+text = "Items"
+
+[node name="LabelItemName" type="Label" parent="MarginContainer/GridContainer/VBoxContainer3/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_e3h5b")
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GridContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Item1Border" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item1Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item1Border/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Item1" type="TextureRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item1Border/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item1Border/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item1Border/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_e3h5b")
+text = "1"
+
+[node name="Item2Border" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item2Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item2Border/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Item2" type="TextureRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item2Border/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item2Border/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item2Border/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3h5b")
+text = "2"
+
+[node name="Item3Border" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item3Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item3Border/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Item3" type="TextureRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item3Border/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item3Border/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item3Border/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3h5b")
+text = "3"
+
+[node name="Item4Border" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item4Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item4Border/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Item4" type="TextureRect" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item4Border/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item4Border/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/VBoxContainer3/HBoxContainer/Item4Border/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3h5b")
+text = "4"
+
+[connection signal="resized" from="MarginContainer/GridContainer/VBoxContainer/ColorRect/MarginContainer/ColorRect2/HungerBarContainer" to="." method="_on_hunger_bar_container_resized"]
+[connection signal="resized" from="MarginContainer/GridContainer/VBoxContainer2/ColorRect/MarginContainer/ColorRect2/AnxietyBarContainer" to="." method="_on_anxiety_bar_container_resized"]

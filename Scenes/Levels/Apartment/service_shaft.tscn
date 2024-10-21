@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://0uawhtcomf0r"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/service_shaft.gd" id="1_nd8ct"]
+[ext_resource type="PackedScene" uid="uid://nuuwfvf83n7t" path="res://Scenes/Levels/Apartment/Base/service_shaft.tscn" id="2_j8huy"]
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="3_ng5av"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="4_7ainr"]
+[ext_resource type="PackedScene" uid="uid://ckxhixn86vdbv" path="res://Scenes/Levels/Apartment/Text/door_floor.tscn" id="5_i6auq"]
+[ext_resource type="PackedScene" uid="uid://di7nqwyjrfua4" path="res://Scenes/Levels/Apartment/Components/boards.tscn" id="6_nx4yj"]
+[ext_resource type="PackedScene" uid="uid://dp3hl12a2kdqn" path="res://Scenes/Units/spider_drop.tscn" id="7_nf30x"]
+[ext_resource type="PackedScene" uid="uid://cj0kt44nnep5p" path="res://Scenes/Units/ghost_path.tscn" id="8_npgdf"]
+
+[node name="ServiceShaft" type="Node2D"]
+script = ExtResource("1_nd8ct")
+
+[node name="ServiceShaft" parent="." instance=ExtResource("2_j8huy")]
+
+[node name="Ladder" type="TileMap" parent="."]
+tile_set = ExtResource("3_ng5av")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131064, 262144, 11, -131063, 327680, 11, -196600, 262144, 11, -196599, 327680, 11, -262136, 262144, 11, -262135, 327680, 11, -327672, 262144, 11, -327671, 327680, 11, -393208, 262144, 11, -393207, 327680, 11, -458744, 262144, 11, -458743, 327680, 11, -524280, 262144, 11, -524279, 327680, 11, -589816, 262144, 11, -589815, 327680, 11, -655352, 262144, 11, -655351, 327680, 11, -720888, 262144, 11, -720887, 327680, 11, -786424, 262144, 11, -786423, 327680, 11, -851960, 262144, 11, -851959, 327680, 11, -917496, 262144, 11, -917495, 327680, 11, -983032, 262144, 11, -983031, 327680, 11, -1048568, 262144, 11, -1048567, 327680, 11, -1114104, 262144, 11, -1114103, 327680, 11, -1179640, 262144, 11, -1179639, 327680, 11, -1245176, 262144, 11, -1245175, 327680, 11, -1310712, 262144, 11, -1310711, 327680, 11, -1376248, 262144, 11, -1376247, 327680, 11, -1441784, 262144, 11, -1441783, 327680, 11, -1507320, 262144, 11, -1507319, 327680, 11, -1572856, 262144, 11, -1572855, 327680, 11, -1638392, 262144, 11, -1638391, 327680, 11, -1703928, 262144, 11, -1703927, 327680, 11, -1769464, 262144, 11, -1769463, 327680, 11, -1835000, 262144, 11, -1834999, 327680, 11, -1900536, 458752, 23, -1900535, 524288, 23)
+
+[node name="AreaDoor1" parent="." instance=ExtResource("4_7ainr")]
+position = Vector2(48, -16)
+door_type = "Fire"
+barricaded = true
+
+[node name="AreaDoor2" parent="." instance=ExtResource("4_7ainr")]
+position = Vector2(48, -112)
+door_type = "Fire"
+barricaded = true
+
+[node name="AreaDoor3" parent="." instance=ExtResource("4_7ainr")]
+position = Vector2(48, -208)
+door_type = "Fire"
+lock_name = "service_door_3"
+
+[node name="AreaDoor4" parent="." instance=ExtResource("4_7ainr")]
+position = Vector2(48, -304)
+door_type = "Fire"
+lock_name = "service_door_4"
+
+[node name="AreaDoor5" parent="." instance=ExtResource("4_7ainr")]
+position = Vector2(48, -400)
+door_type = "Fire"
+lock_name = "service_door_5"
+
+[node name="DoorFloor1" parent="." instance=ExtResource("5_i6auq")]
+position = Vector2(48, -68)
+floor_number = 1
+direction = "Floor"
+
+[node name="DoorFloor2" parent="." instance=ExtResource("5_i6auq")]
+position = Vector2(48, -164)
+floor_number = 2
+direction = "Floor"
+
+[node name="DoorFloor3" parent="." instance=ExtResource("5_i6auq")]
+position = Vector2(48, -260)
+direction = "Floor"
+
+[node name="DoorFloor4" parent="." instance=ExtResource("5_i6auq")]
+position = Vector2(48, -356)
+floor_number = 4
+direction = "Floor"
+
+[node name="DoorFloor5" parent="." instance=ExtResource("5_i6auq")]
+position = Vector2(48, -452)
+floor_number = 5
+direction = "Floor"
+
+[node name="Boards" parent="." instance=ExtResource("6_nx4yj")]
+position = Vector2(40, -37)
+
+[node name="Boards2" parent="." instance=ExtResource("6_nx4yj")]
+position = Vector2(40, -132)
+
+[node name="SpiderDrop" parent="." instance=ExtResource("7_nf30x")]
+position = Vector2(128, -464)
+drop_height = 300
+
+[node name="SpiderDrop2" parent="." instance=ExtResource("7_nf30x")]
+position = Vector2(80, -368)
+
+[node name="GhostPath" parent="." instance=ExtResource("8_npgdf")]
+position = Vector2(16, -130)
+path_width = 10
+
+[node name="Decals" type="TileMap" parent="."]
+tile_set = ExtResource("3_ng5av")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131067, 851968, 13, -131066, 458752, 2, -196606, 983040, 13, -131070, 983040, 14, -196605, 1048576, 13, -131069, 1048576, 14, -262142, 851968, 14, -262141, 917504, 14, -196607, 983040, 0, -131071, 983040, 1, -393215, 786432, 11, -1114102, 851968, 11, -1900543, 917504, 11, -1179647, 655360, 11)
+
+[connection signal="door_opened" from="AreaDoor3" to="." method="_on_area_door_3_door_opened"]
+[connection signal="door_opened" from="AreaDoor4" to="." method="_on_area_door_4_door_opened"]
+[connection signal="door_opened" from="AreaDoor5" to="." method="_on_area_door_5_door_opened"]

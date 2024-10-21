@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7t7ip3j04ekr"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_lggne"]
+[ext_resource type="Script" path="res://Scenes/Units/glass_single.gd" id="2_mgkcj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dun23"]
+size = Vector2(15, 4)
+
+[node name="GlassSingle" type="TileMap"]
+tile_set = ExtResource("1_lggne")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 589824, 10)
+script = ExtResource("2_mgkcj")
+
+[node name="AreaDamage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
+position = Vector2(7.5, -2)
+shape = SubResource("RectangleShape2D_dun23")
+
+[connection signal="body_entered" from="AreaDamage" to="." method="_on_area_damage_body_entered"]
+[connection signal="body_exited" from="AreaDamage" to="." method="_on_area_damage_body_exited"]

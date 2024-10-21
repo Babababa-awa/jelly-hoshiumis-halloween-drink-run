@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1qwdyeg33en3"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_bvwrd"]
+
+[node name="Painting5" type="TileMap"]
+tile_set = ExtResource("1_bvwrd")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262144, 1507328, 18, -196608, 1507328, 19, -262143, 1572864, 18, -196607, 1572864, 19, -262142, 1638400, 18, -196606, 1638400, 19, -131072, 1507328, 20, -131071, 1572864, 20, -131070, 1638400, 20, -262141, 1703936, 18, -196605, 1703936, 19, -131069, 1703936, 20)
+
+[node name="Frame" type="TileMap" parent="."]
+tile_set = ExtResource("1_bvwrd")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262144, 655360, 0, -262143, 786432, 0, -262142, 786432, 0, -196608, 655360, 2, -131072, 655360, 1, -262141, 720896, 0, -196605, 720896, 2, -131069, 720896, 1, -131070, 786432, 1, -131071, 786432, 1)

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1e6s3dgkh0yi"]
+
+[ext_resource type="TileSet" uid="uid://dkq0x8vybft0f" path="res://Resources/TileSets/apartment.tres" id="1_28oko"]
+[ext_resource type="Script" path="res://Scenes/Levels/Apartment/roof.gd" id="1_w7dgt"]
+[ext_resource type="PackedScene" uid="uid://clvpmfksni8l0" path="res://Scenes/Levels/Apartment/Base/roof.tscn" id="2_weexe"]
+[ext_resource type="PackedScene" uid="uid://ch8jsclq6p2mb" path="res://Scenes/Levels/Apartment/Components/area_door.tscn" id="3_1yras"]
+[ext_resource type="PackedScene" uid="uid://cj0kt44nnep5p" path="res://Scenes/Units/ghost_path.tscn" id="5_owaip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv105"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7bdt"]
+
+[node name="Roof" type="Node2D"]
+script = ExtResource("1_w7dgt")
+
+[node name="Roof" parent="." instance=ExtResource("2_weexe")]
+
+[node name="AreaDoorStairwell" parent="." instance=ExtResource("3_1yras")]
+position = Vector2(1488, -16)
+door_type = "Fire"
+
+[node name="AreaDoorMaintenance" parent="." instance=ExtResource("3_1yras")]
+position = Vector2(336, -16)
+door_type = "Fire"
+lock_name = "building_roof"
+
+[node name="Physics" type="TileMap" parent="."]
+tile_set = ExtResource("1_28oko")
+format = 2
+layer_0/tile_data = PackedInt32Array(-393217, 917504, 0, -458753, 917504, 0, -524289, 917504, 0, -589825, 917504, 0, -655361, 917504, 0, -720897, 917504, 0, -786433, 917504, 0, -851969, 917504, 0, -65438, 917504, 0, -130974, 917504, 0, -196510, 917504, 0, -262046, 917504, 0, -327582, 917504, 0, -393118, 917504, 0, -458654, 917504, 0, -524190, 917504, 0, -589726, 917504, 0, -655262, 917504, 0, -720798, 917504, 0, -982942, 917504, 0, -917406, 917504, 0, -851870, 917504, 0, -786334, 917504, 0, -917505, 917504, 0, -327681, 917504, 0, -262145, 917504, 0, -196609, 917504, 0, -131073, 917504, 0, -65537, 917504, 0, -1, 917504, 0)
+
+[node name="AreaFireEscape" type="Area2D" parent="."]
+position = Vector2(1558, -122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFireEscape"]
+position = Vector2(-6, -6)
+shape = SubResource("RectangleShape2D_mv105")
+
+[node name="Ladder" type="TileMap" parent="."]
+tile_set = ExtResource("1_28oko")
+format = 2
+layer_0/tile_data = PackedInt32Array(-393200, 262144, 11, -327664, 262144, 11, -262128, 262144, 11, -196592, 262144, 11, -131056, 262144, 11, -393199, 327680, 11, -327663, 327680, 11, -262127, 327680, 11, -196591, 327680, 11, -131055, 327680, 11, -458735, 327680, 10, -458736, 262144, 10)
+
+[node name="GhostPath" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(640, -160)
+path_width = 8
+
+[node name="GhostPath2" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(192, -128)
+path_width = 14
+
+[node name="GhostPath3" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(368, -160)
+path_width = 7
+
+[node name="GhostPath4" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(448, -128)
+path_width = 9
+
+[node name="GhostPath5" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(816, -128)
+path_width = 8
+
+[node name="GhostPath6" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(912, -64)
+
+[node name="GhostPath7" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(1024, -64)
+path_width = 8
+
+[node name="GhostPath8" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(992, -128)
+path_width = 9
+
+[node name="GhostPath9" parent="." instance=ExtResource("5_owaip")]
+position = Vector2(1040, -128)
+path_width = 9
+
+[node name="Railings" type="TileMap" parent="."]
+z_index = 20
+tile_set = ExtResource("1_28oko")
+format = 2
+layer_0/tile_data = PackedInt32Array(-524288, 786432, 21, -524287, 786432, 21, -524286, 786432, 21, -524285, 786432, 21, -524284, 786432, 21, -524283, 786432, 21, -524282, 786432, 21, -524281, 786432, 21, -524280, 786432, 21, -524279, 786432, 21, -524278, 786432, 21, -524277, 786432, 21, -524276, 851968, 21, -130975, 786432, 21, -130974, 851968, 21, -130976, 786432, 21, -130977, 786432, 21, -130978, 786432, 21, -130979, 786432, 21, -130980, 786432, 21, -130981, 786432, 21, -130982, 786432, 21, -130983, 786432, 21, -130984, 786432, 21, -130985, 786432, 21, -131034, 786432, 21, -131033, 786432, 21, -131032, 786432, 21, -131031, 786432, 21, -131030, 786432, 21, -131029, 786432, 21, -131028, 786432, 21, -131027, 786432, 21, -131026, 786432, 21, -131025, 786432, 21, -131024, 786432, 21, -131023, 786432, 21, -131022, 786432, 21, -131021, 786432, 21, -131020, 786432, 21, -131019, 786432, 21, -131018, 786432, 21, -131017, 786432, 21, -131016, 786432, 21, -131015, 786432, 21, -131014, 786432, 21, -131013, 786432, 21, -131012, 786432, 21, -131011, 786432, 21, -131010, 786432, 21, -131009, 786432, 21, -131008, 786432, 21, -131007, 786432, 21, -131006, 786432, 21, -131005, 786432, 21, -131004, 786432, 21, -131003, 786432, 21, -131002, 786432, 21, -131001, 786432, 21, -131000, 786432, 21, -130999, 786432, 21, -130998, 786432, 21, -130997, 786432, 21, -130996, 786432, 21, -130995, 786432, 21, -130994, 786432, 21, -130993, 786432, 21, -130992, 786432, 21, -130991, 786432, 21, -130990, 786432, 21, -130989, 786432, 21, -130988, 786432, 21, -130987, 786432, 21, -130986, 786432, 21, -131060, 786432, 21, -131059, 786432, 21, -131058, 786432, 21, -131057, 786432, 21, -131056, 786432, 21, -131055, 786432, 21, -131054, 786432, 21, -131053, 786432, 21, -131052, 786432, 21, -131051, 786432, 21, -131050, 786432, 21, -131049, 786432, 21, -131048, 786432, 21, -131047, 786432, 21, -131046, 786432, 21, -131045, 786432, 21, -131044, 786432, 21, -131043, 786432, 21, -131042, 786432, 21, -131041, 786432, 21, -131040, 786432, 21, -131039, 786432, 21, -131038, 786432, 21, -131037, 786432, 21, -131036, 786432, 21, -131035, 786432, 21, -458753, 720896, 21, -131061, 720896, 21)
+
+[node name="AreaLadder" type="Area2D" parent="."]
+position = Vector2(1405, -112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLadder"]
+position = Vector2(10, -10)
+shape = SubResource("RectangleShape2D_c7bdt")
+
+[connection signal="door_opened" from="AreaDoorStairwell" to="." method="_on_area_door_stairwell_door_opened"]
+[connection signal="door_opened" from="AreaDoorMaintenance" to="." method="_on_area_door_maintenance_door_opened"]
+[connection signal="body_entered" from="AreaFireEscape" to="." method="_on_area_fire_escape_body_entered"]
+[connection signal="body_exited" from="AreaFireEscape" to="." method="_on_area_fire_escape_body_exited"]
+[connection signal="body_entered" from="AreaLadder" to="." method="_on_area_ladder_body_entered"]
